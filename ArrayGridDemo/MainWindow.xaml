@@ -6,11 +6,28 @@
         xmlns:local="clr-namespace:ArrayGridDemo"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
+
+    <Window.Resources>
+        <local:ThresholdToBrushConverter x:Key="ThresholdBrush" />
+    </Window.Resources>
+
+
     <Grid>
         <DataGrid x:Name="Grid"
                   AutoGenerateColumns="True"
                   IsReadOnly="True"
                   HeadersVisibility="All"
-                  GridLinesVisibility="All" />
+                  GridLinesVisibility="All" >
+
+            <DataGrid.CellStyle>
+                <Style TargetType="DataGridCell">
+                    <Setter Property="Background"
+                            Value="{Binding Content.Text,
+                                            RelativeSource={RelativeSource Self},
+                                            Converter={StaticResource ThresholdBrush}}"/>
+                    <Setter Property="Foreground" Value="Black"/>
+                </Style>
+            </DataGrid.CellStyle>
+        </DataGrid>
     </Grid>
 </Window>
