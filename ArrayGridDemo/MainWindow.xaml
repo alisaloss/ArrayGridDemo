@@ -11,6 +11,7 @@
                   AutoGenerateColumns="True"
                   IsReadOnly="True"
                   HeadersVisibility="All"
-                  GridLinesVisibility="All" />
+                  GridLinesVisibility="All"
+                  LoadingRow="Grid_LoadingRow"/>
     </Grid>
 </Window>
